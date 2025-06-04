@@ -1,0 +1,19 @@
+[project]
+name = "blockkit-plugin-example"
+version = "0.1.0"
+description = "Example plugin for blockkit"
+authors = [
+    {name = "Example Author", email = "author@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "block-kit>=0.1.0",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.entry-points."blockkit.blocks"]
+code_block = "blockkit_plugin_example:CodeBlock"
