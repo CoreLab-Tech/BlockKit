@@ -3,7 +3,7 @@
 from typing import Any, Dict, Iterator, List, Optional, TypeVar, cast
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from corelab_blockkit.blocks.base import BaseBlock
 from corelab_blockkit.exceptions import BlockDuplicateError, BlockNotFoundError
@@ -18,7 +18,7 @@ class BlockList(BaseModel):
     It also provides methods for serialization and deserialization.
     """
 
-    blocks: List[BaseBlock] = []
+    blocks: List[BaseBlock] = Field(default_factory=list)
 
     model_config = {
         "frozen": True,  # Make the model immutable (PEP 681)

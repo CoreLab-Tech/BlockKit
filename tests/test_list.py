@@ -108,6 +108,15 @@ class TestBlockList:
         with pytest.raises(ValueError):
             blocks.move(block.id, 1)
 
+    def test_move_same_index(self):
+        """Test moving a block to the same position returns the same list."""
+        block1 = TextBlock(text="Block 1")
+        block2 = TextBlock(text="Block 2")
+        blocks = BlockList(blocks=[block1, block2])
+        new_blocks = blocks.move(block1.id, 0)
+        assert new_blocks is blocks
+        assert list(new_blocks) == [block1, block2]
+
     def test_find_by_id(self):
         """Test finding a block by ID."""
         block1 = TextBlock(text="Block 1")

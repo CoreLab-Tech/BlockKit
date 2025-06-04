@@ -20,7 +20,7 @@ class BlockMeta(BaseModel):
     
     created_at: datetime = Field(default_factory=datetime.now)
     updated_at: datetime = Field(default_factory=datetime.now)
-    is_favorite: bool = False # todo: Убрать! Это нужно не каждому приложению!!!
+    is_favorite: bool = False  # optional flag indicating favorite status
     tags: list[str] = Field(default_factory=list)
     extra: Dict[str, Any] = Field(default_factory=dict)
     
